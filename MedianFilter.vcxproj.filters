@@ -24,24 +24,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="image_loader.h">
-      <Filter>app\image_loader</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="image_loader.cpp">
-      <Filter>app\image_loader</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>app</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="res\tesla-roadster.jpg">
       <Filter>res</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="app\image_loader\image_loader.cpp">
+      <Filter>app\image_loader</Filter>
+    </ClCompile>
+    <ClCompile Include="app\main.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="app\image_loader\image_loader.h">
+      <Filter>app\image_loader</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

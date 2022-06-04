@@ -88,6 +88,7 @@
     <IncludePath>$(ProjectDir)external\include;$(IncludePath)</IncludePath>
     <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
     <ReferencePath>$(ProjectDir)external\lib;$(ReferencePath)</ReferencePath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -178,17 +179,17 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="image_loader.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="image_loader.cpp" />
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="res\tesla-roadster.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="app\image_loader\image_loader.cpp" />
+    <ClCompile Include="app\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="app\image_loader\image_loader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -34,7 +34,7 @@ Image median filter implemented on GPU, CPU (CUDA, CUDA w/ shared memory)
 
 3. Copy
 	```
-    	<OpenCV folder>\build\x64\vc15\bin\opencv_world455.dll ---> <Project Folder>\external\dll\release
+    <OpenCV folder>\build\x64\vc15\bin\opencv_world455.dll ---> <Project Folder>\external\dll\release
         <OpenCV folder>\build\x64\vc15\bin\opencv_world455.pdb ---> <Project Folder>\external\dll\release
         <OpenCV folder>\build\x64\vc15\bin\opencv_world455d.dll ---> <Project Folder>\external\dll\debug
         <OpenCV folder>\build\x64\vc15\bin\opencv_world455d.dll ---> <Project Folder>\external\dll\debug
