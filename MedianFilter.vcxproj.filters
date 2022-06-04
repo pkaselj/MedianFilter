@@ -19,6 +19,9 @@
     <Filter Include="app\image_loader">
       <UniqueIdentifier>{009e6926-3278-4c45-a0fb-a13588e94f32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{4ce2f5d1-d041-4778-8cf2-8b33c24f3f20}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="image_loader.h">
@@ -32,5 +35,10 @@
     <ClCompile Include="main.cpp">
       <Filter>app</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\tesla-roadster.jpg">
+      <Filter>res</Filter>
+    </Image>
   </ItemGroup>
 </Project>

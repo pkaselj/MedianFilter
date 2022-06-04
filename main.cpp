@@ -2,7 +2,7 @@
 
 int main()
 {
-	RGBImage image = ImageLoader::FromFile("C:\\Users\\KASO\\Desktop\\tesla-roadster.jpg");
+	RGBImage image = ImageLoader::FromFile("res\\tesla-roadster.jpg");
 
 	auto image2 = ImageLoader::FromRawImage(image);
 

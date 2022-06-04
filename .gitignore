@@ -3,6 +3,18 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# External dlls
+external/dll/debug/*
+external/dll/release/*
+
+# Sensitive info
+# According to https://stackoverflow.com/a/26448538
+*.sln
+*.ncb
+*.suo
+*.user
+*.vssscc
+
 # User-specific files
 *.rsuser
 *.suo
