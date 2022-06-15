@@ -44,4 +44,8 @@
       <Filter>app\image_loader</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="app\median_gpu\MedianGPU.cu" />
+    <CudaCompile Include="app\median_gpu\MedianGPU.cuh" />
+  </ItemGroup>
 </Project>

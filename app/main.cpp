@@ -1,4 +1,5 @@
 #include "image_loader\image_loader.h"
+#include "median_gpu\MedianGPU.cuh"
 
 int main()
 {
@@ -6,7 +7,12 @@ int main()
 
 	auto image2 = ImageLoader::FromRawImage(image);
 
-	ImageLoader::ShowImage(image2);
+	auto filteredImage = ApplyMedianFilter(image);
+
+	auto rawFiltered = ImageLoader::FromRawImage(filteredImage);
+
+	ImageLoader::ShowImage(rawFiltered);
+	ImageLoader::SaveImage("C:\\Users\\KASO\\Desktop\\image.jpg", rawFiltered);
 
 	return 0;
 }
