@@ -3,7 +3,7 @@
 
 int main()
 {
-	RGBImage image = ImageLoader::FromFile("res\\tesla-roadster.jpg");
+	RGBImage image = ImageLoader::FromFile("C:\\Users\\___\\Desktop\\noisy.jpg");
 
 	auto image2 = ImageLoader::FromRawImage(image);
 
@@ -12,7 +12,7 @@ int main()
 	auto rawFiltered = ImageLoader::FromRawImage(filteredImage);
 
 	ImageLoader::ShowImage(rawFiltered);
-	ImageLoader::SaveImage("C:\\Users\\KASO\\Desktop\\image.jpg", rawFiltered);
+	ImageLoader::SaveImage("C:\\Users\\_____\\Desktop\\image.jpg", rawFiltered);
 
 	return 0;
 }
