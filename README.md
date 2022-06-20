@@ -5,7 +5,7 @@ Median Filter
 
 - Petar Kaselj
 - Marijan Simundic Bendic
-
+- Eugen Vrlic
 
 ### Description
 
