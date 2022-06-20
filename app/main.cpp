@@ -24,9 +24,9 @@ int main()
 	}
 	
 	auto stop = high_resolution_clock::now();
-	auto duration = duration_cast<microseconds>(stop - start);
+	auto duration = duration_cast<milliseconds>(stop - start);
 
-	std::cout << "Duration: " << duration.count()/1000 << " ms";
+	std::cout << "Duration: " << duration.count() << " ms";
 
 	auto rawFiltered = ImageLoader::FromRawImage(filteredImage);
 
