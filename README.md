@@ -1,6 +1,11 @@
 Median Filter
 =============
 
+### Author
+
+Petar Kaselj
+Marijan Simnudic Bendic
+
 
 ### Description
 
