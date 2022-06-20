@@ -12,11 +12,11 @@ auto ApplyFilterAndMeasureTime(FilterFn filter, const RGBImage& image, const int
 {
 	RGBImage filteredImage;
 
-	ImageLoader::ShowImage(image);
+	//ImageLoader::ShowImage(image);
 
 	auto start = high_resolution_clock::now();
 
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < numberOfIterations; i++)
 	{
 		filteredImage = filter(image);
 	}
@@ -24,7 +24,7 @@ auto ApplyFilterAndMeasureTime(FilterFn filter, const RGBImage& image, const int
 	auto stop = high_resolution_clock::now();
 	auto duration = duration_cast<milliseconds>(stop - start);
 
-	ImageLoader::ShowImage(filteredImage);
+	//ImageLoader::ShowImage(filteredImage);
 
 	return duration;
 }
@@ -33,29 +33,25 @@ int main()
 {
 	RGBImage image = ImageLoader::FromFile("C:\\Users\\KASO\\Desktop\\noisy.jpg");
 
-	const int arrIterations[] = { 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048 };
+	const int arrIterations[] = { 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024 };
+
+	std::chrono::milliseconds duration;
 
 	for(const auto numberOfIterations : arrIterations)
 	{
+		std::cout << "============= Number of iterations: " << numberOfIterations << std::endl;
 
+		duration = ApplyFilterAndMeasureTime(ApplyMedianFilter_CPU, image, numberOfIterations);
+		std::cout << "[CPU] :: Duration: " << duration.count() << " ms" << std::endl;
+
+		duration = ApplyFilterAndMeasureTime(ApplyMedianFilter_GPU, image, numberOfIterations);
+		std::cout << "[GPU] :: Duration: " << duration.count() << " ms" << std::endl;
+
+		duration = ApplyFilterAndMeasureTime(ApplyMedianFilter_shared, image, numberOfIterations);
+		std::cout << "[GPU SHMEM] :: Duration: " << duration.count() << " ms" << std::endl;
+
+		std::cout << std::endl;
 	}
-
-
-	
-	
-	auto filter = ApplyMedianFilter_shared;
-	//auto filter = ApplyMedianFilter_GPU;
-	//auto filter = ApplyMedianFilter_CPU;
-	
-
-	
-
-
-	std::cout << "Duration: " << duration.count() << " ms";
-
-	auto rawFiltered = ImageLoader::FromRawImage(filteredImage);
-
-	
 
 	return 0;
 }
