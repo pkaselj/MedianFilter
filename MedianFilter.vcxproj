@@ -23,19 +23,19 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{0e59cd6c-fa70-4bca-9cd4-b55466db4402}</ProjectGuid>
     <RootNamespace>MedianFilter</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -54,7 +54,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 11.5.props" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 11.7.props" />
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
@@ -183,21 +183,23 @@
     <Image Include="res\tesla-roadster.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <CudaCompile Include="app\median_gpu\MedianGPU.cu">
-      <FileType>Document</FileType>
-    </CudaCompile>
-    <CudaCompile Include="app\median_gpu\MedianGPU.cuh" />
+    <CudaCompile Include="app\median_gpu\MedianGPU.cu" />
+    <CudaCompile Include="app\median_gpu_shared\MedianGPU_sh.cu" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="app\image_loader\image_loader.cpp" />
     <ClCompile Include="app\main.cpp" />
+    <ClCompile Include="app\median_cpu\MedianCPU.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app\image_loader\image_loader.h" />
+    <ClInclude Include="app\median_cpu\MedianCPU.h" />
+    <ClInclude Include="app\median_gpu\MedianGPU.cuh" />
+    <ClInclude Include="app\median_gpu_shared\MedianGPU_sh.cuh" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 11.5.targets" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 11.7.targets" />
   </ImportGroup>
 </Project>

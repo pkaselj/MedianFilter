@@ -5,18 +5,18 @@
 #include <memory>
 
 //#define N 1280*720
-#define BLOCK_SIZE 256
+#define BLOCK_SIZE 512
 
 #define FLAT_INDEX_TO_ROW(INDEX, COLUMNS)		(int)((INDEX) / (COLUMNS))
 #define FLAT_INDEX_TO_COLUMN(INDEX, COLUMNS)	(int)((INDEX) % (COLUMNS))
 
 #define ROW_COL_TO_FLAT_INDEX(ROW, COL, WIDTH)	(int)((ROW) * (WIDTH) + (COL))
 
-std::vector<std::vector<uint8_t>> ApplyMedianFilterToChannel(const std::vector<std::vector<uint8_t>>& channel, int width, int height);
-std::unique_ptr<uint8_t[]> VectorTo1DArray(const std::vector<std::vector<uint8_t>>& vec, int width, int height);
-std::vector<std::vector<uint8_t>> Array1DToVector(const uint8_t* arr, int width, int height);
+static std::vector<std::vector<uint8_t>> ApplyMedianFilterToChannel(const std::vector<std::vector<uint8_t>>& channel, int width, int height);
+static std::unique_ptr<uint8_t[]> VectorTo1DArray(const std::vector<std::vector<uint8_t>>& vec, int width, int height);
+static std::vector<std::vector<uint8_t>> Array1DToVector(const uint8_t* arr, int width, int height);
 
-__global__
+static __global__
 void cuMedianKernel(uint8_t* pOriginal, uint8_t* pResult, const int width, const int height)
 {
 	int i = blockIdx.x * blockDim.x + threadIdx.x;
@@ -82,7 +82,7 @@ void cuMedianKernel(uint8_t* pOriginal, uint8_t* pResult, const int width, const
 	
 }
 
-RGBImage ApplyMedianFilter(const RGBImage& originalImage)
+RGBImage ApplyMedianFilter_GPU(const RGBImage& originalImage)
 {
 	return RGBImage
 	{

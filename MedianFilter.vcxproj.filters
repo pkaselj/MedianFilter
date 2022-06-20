@@ -38,14 +38,22 @@
     <ClCompile Include="app\main.cpp">
       <Filter>app</Filter>
     </ClCompile>
+    <ClCompile Include="app\median_cpu\MedianCPU.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app\image_loader\image_loader.h">
       <Filter>app\image_loader</Filter>
     </ClInclude>
+    <ClInclude Include="app\median_gpu_shared\MedianGPU_sh.cuh" />
+    <ClInclude Include="app\median_gpu\MedianGPU.cuh" />
+    <ClInclude Include="app\median_cpu\MedianCPU.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <CudaCompile Include="app\median_gpu_shared\MedianGPU_sh.cu" />
     <CudaCompile Include="app\median_gpu\MedianGPU.cu" />
-    <CudaCompile Include="app\median_gpu\MedianGPU.cuh" />
   </ItemGroup>
 </Project>
