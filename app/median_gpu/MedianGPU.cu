@@ -5,7 +5,7 @@
 #include <memory>
 
 //#define N 1280*720
-#define BLOCK_SIZE 512
+#define BLOCK_SIZE 1024
 
 #define FLAT_INDEX_TO_ROW(INDEX, COLUMNS)		(int)((INDEX) / (COLUMNS))
 #define FLAT_INDEX_TO_COLUMN(INDEX, COLUMNS)	(int)((INDEX) % (COLUMNS))

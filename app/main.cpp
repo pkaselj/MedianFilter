@@ -6,34 +6,56 @@
 #include <iostream>
 using namespace std::chrono;
 
-int main()
+using FilterFn = RGBImage(*)(const RGBImage&);
+
+auto ApplyFilterAndMeasureTime(FilterFn filter, const RGBImage& image, const int numberOfIterations)
 {
-	RGBImage image = ImageLoader::FromFile("C:\\Users\\KASO\\Desktop\\noisy.jpg");
+	RGBImage filteredImage;
+
+	ImageLoader::ShowImage(image);
 
 	auto start = high_resolution_clock::now();
 
-	auto filter = ApplyMedianFilter_shared;
-	//auto filter = ApplyMedianFilter_GPU;
-	//auto filter = ApplyMedianFilter_CPU;
-
-	auto filteredImage = filter(image);
-	
 	for (int i = 0; i < 100; i++)
 	{
 		filteredImage = filter(image);
 	}
-	
+
 	auto stop = high_resolution_clock::now();
 	auto duration = duration_cast<milliseconds>(stop - start);
+
+	ImageLoader::ShowImage(filteredImage);
+
+	return duration;
+}
+
+int main()
+{
+	RGBImage image = ImageLoader::FromFile("C:\\Users\\KASO\\Desktop\\noisy.jpg");
+
+	const int arrIterations[] = { 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048 };
+
+	for(const auto numberOfIterations : arrIterations)
+	{
+
+	}
+
+
+	
+	
+	auto filter = ApplyMedianFilter_shared;
+	//auto filter = ApplyMedianFilter_GPU;
+	//auto filter = ApplyMedianFilter_CPU;
+	
+
+	
+
 
 	std::cout << "Duration: " << duration.count() << " ms";
 
 	auto rawFiltered = ImageLoader::FromRawImage(filteredImage);
 
 	
-
-	ImageLoader::ShowImage(rawFiltered);
-	ImageLoader::SaveImage("C:\\Users\\KASO\\Desktop\\image.jpg", rawFiltered);
 
 	return 0;
 }

@@ -19,5 +19,6 @@ public:
 	static RGBImage FromFile(const std::string& image_path);
 	static cv::Mat	FromRawImage(const RGBImage& image);
 	static void		ShowImage(const cv::Mat& image);
+	static void		ShowImage(const RGBImage& image);
 	static void		SaveImage(const std::string& path, const cv::Mat& image);
 };

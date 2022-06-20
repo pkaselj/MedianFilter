@@ -155,3 +155,9 @@ void ImageLoader::SaveImage(const std::string& path, const cv::Mat& image)
 {
 	imwrite(path, image);
 }
+
+void ImageLoader::ShowImage(const RGBImage& image)
+{
+	auto rawImage = FromRawImage(image);
+	ShowImage(rawImage);
+}
