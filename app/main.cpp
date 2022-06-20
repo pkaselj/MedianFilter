@@ -31,9 +31,9 @@ auto ApplyFilterAndMeasureTime(FilterFn filter, const RGBImage& image, const int
 
 int main()
 {
-	RGBImage image = ImageLoader::FromFile("C:\\Users\\KASO\\Desktop\\noisy.jpg");
+	RGBImage image = ImageLoader::FromFile("C:\\Users\\____\\Desktop\\nasa3.jpg");
 
-	const int arrIterations[] = { 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024 };
+	const int arrIterations[] = { 1, 2, 4, 8, 16, 32, 64, 128, 256, 512 };
 
 	std::chrono::milliseconds duration;
 
