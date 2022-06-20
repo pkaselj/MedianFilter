@@ -3,8 +3,8 @@ Median Filter
 
 ### Author
 
-Petar Kaselj
-Marijan Simnudic Bendic
+- Petar Kaselj
+- Marijan Simundic Bendic
 
 
 ### Description
